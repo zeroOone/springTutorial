@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--相当于new一个对象，并初始化message为“Hello Spring”-->
+    <bean id="HelloWorld" class="spring.firstSpring.HelloSpring">
+        <property name="message" value="Hello Spring"/>
+    </bean>
+</beans>
