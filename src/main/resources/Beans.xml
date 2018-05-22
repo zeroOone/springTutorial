@@ -27,4 +27,5 @@
         <property name="message" value="Using the default destroy-method"/>
     </bean>
 
+    <bean class="spring.IoC.PostProcessor"/>
 </beans>
