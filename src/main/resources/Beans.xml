@@ -7,4 +7,14 @@
     <bean id="HelloWorld" class="spring.firstSpring.HelloSpring">
         <property name="message" value="Hello Spring"/>
     </bean>
+
+    <!-- Bean作用域 ： 单例模式 -->
+    <bean id="singletonScope" class="spring.firstSpring.HelloSpring" scope="singleton">
+        <property name="message" value="I'm singleton scope."/>
+    </bean>
+
+    <!-- Bean作用域 ： 原型模式 -->
+    <bean id="prototypeScope" class="spring.firstSpring.HelloSpring" scope="prototype">
+        <property name="message" value="I'm prototype scope."/>
+    </bean>
 </beans>
