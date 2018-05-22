@@ -5,7 +5,8 @@
 
     <!--相当于new一个对象，并初始化message为“Hello Spring”-->
     <bean id="HelloWorld" class="spring.firstSpring.HelloSpring">
-        <property name="message" value="Hello Spring"/>
+        <property name="message2" value="Hello SonParent"/>
+        <property name="message" value="asasdas"/>
     </bean>
 
     <!-- Bean作用域 ： 单例模式 -->
@@ -27,5 +28,23 @@
         <property name="message" value="Using the default destroy-method"/>
     </bean>
 
+    <!--后置处理器 BeanPostProcessor-->
     <bean class="spring.IoC.PostProcessor"/>
+
+    <!--Bean定义继承 : HelloWorld BEAN 为 son的父亲-->
+    <bean id="son" class="spring.IoC.HelloSon" parent="HelloWorld">
+        <property name="message2" value="Hello CHina"/>
+        <property name="message3" value="Namaster cccc"/>
+    </bean>
+
+    <!--Bean定义一个模板-->
+    <bean id="beanTemplate" abstract="true">
+        <property name="message6" value="1"/>
+        <property name="message7" value="7"/>
+    </bean>
+    <!--继承模板-->
+    <bean id="templateSon" class="spring.IoC.BeanTemplate" parent="beanTemplate">
+        <property name="message" value="0"/>
+        <property name="message1" value="1"/>
+    </bean>
 </beans>
