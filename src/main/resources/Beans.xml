@@ -17,4 +17,14 @@
     <bean id="prototypeScope" class="spring.firstSpring.HelloSpring" scope="prototype">
         <property name="message" value="I'm prototype scope."/>
     </bean>
+
+    <!--生命周期-使用接口中的方法(默认)-->
+    <bean id="lifeCircleDefault" class="spring.firstSpring.HelloSpring">
+        <property name="message" value="Using the default init-method"/>
+    </bean>
+    <!--生命周期-使用接口中的方法（显示）-->
+    <bean id="lifeCircleCreated" class="spring.firstSpring.HelloSpring" destroy-method="destroyBean" init-method="initializeBean">
+        <property name="message" value="Using the default destroy-method"/>
+    </bean>
+
 </beans>
