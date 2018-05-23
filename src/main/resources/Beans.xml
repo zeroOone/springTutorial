@@ -47,4 +47,64 @@
         <property name="message" value="0"/>
         <property name="message1" value="1"/>
     </bean>
+
+    <!-- 构造函数注入 -->
+    <!--定义TextEditor的bean，并添加构造函数属性-->
+    <bean id="textEditor" class="spring.DependencyInjection.TextEditor">
+        <constructor-arg ref="spellChecker"/>
+    </bean>
+    <!--定义SpellChecker的bean-->
+    <bean id="spellChecker" class="spring.DependencyInjection.SpellChecker">
+    </bean>
+
+    <!-- 基于设值函数注入(setter) -->
+    <bean id="textEditor2" class="spring.DependencyInjection.TextEditor2">
+        <property name="spellChecker2" ref="spellChecker2"/>
+    </bean>
+    <bean id="spellChecker2" class="spring.DependencyInjection.SpellChecker2">
+    </bean>
+
+    <!-- 基于设值函数注入（setter）除了上述方法，还可以直接注入内部bean来实现 -->
+    <bean id="injectInnerBean" class="spring.DependencyInjection.TextEditor2">
+        <property name="spellChecker2">
+            <bean id="innerBean" class="spring.DependencyInjection.SpellChecker2"/>
+        </property>
+    </bean>
+
+    <!--注入集合-->
+    <bean id="javaCollection" class="spring.DependencyInjection.JavaCollection">
+        <property name="addressList">
+            <list>
+                <value>CHINA</value>
+                <value>US</value>
+                <value>UA</value>
+                <value>JAPAN</value>
+            </list>
+        </property>
+        <property name="addressSet">
+            <set>
+                <value>CHINA</value>
+                <value>US</value>
+                <value>UA</value>
+                <value>JAPAN</value>
+            </set>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="one" value="CHINA"/>
+                <entry key="two" value="US"/>
+                <entry key="Three" value="UA"/>
+                <entry key="Four" value="JAPAN"/>
+            </map>
+        </property>
+        <property name="addressProp">
+            <props>
+                <prop key="one">CHINA</prop>
+                <prop key="two">US</prop>
+                <prop key="three">UA</prop>
+                <prop key="four">JAPAN</prop>
+            </props>
+        </property>
+        <!--引用注入-->
+    </bean>
 </beans>
