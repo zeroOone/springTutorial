@@ -105,6 +105,31 @@
                 <prop key="four">JAPAN</prop>
             </props>
         </property>
-        <!--引用注入-->
+    </bean>
+
+    <!--自动装配byName-->
+<!--
+    <bean id="textEditor3" class="spring.Autowired.TextEditor3"
+    autowire="byName">
+        <property name="name" value="AutoWireByName"/>
+    </bean>
+    <bean id="TEST" class="spring.Autowired.SpellChecker3">
+    </bean>
+-->
+    <!--自动装配byType 只能按照SpellChecker3的类型来查询匹配，因此只能有一个bean，这就是上面配置信息被注释掉的原因-->
+<!--
+    <bean id="textEditor4" class="spring.Autowired.TextEditor3"
+          autowire="byType">
+        <property name="name" value="AutoWireByName"/>
+    </bean>
+    <bean id="spellChecker411" class="spring.Autowired.SpellChecker3">
+    </bean>
+-->
+    <!--自动装配constructor 会把构造函数注入的类的实例名来与配置文件中的bean对比-->
+    <bean id="textEditor5" class="spring.Autowired.TextEditor3"
+          autowire="constructor">
+        <property name="name" value="AutoWireByName"/>
+    </bean>
+    <bean id="spellChecker50" class="spring.Autowired.SpellChecker3">
     </bean>
 </beans>
