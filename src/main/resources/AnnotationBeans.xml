@@ -14,11 +14,14 @@
     </bean>
 
     <!--当autowired注释用在setter上时，相当于使用byType的方式来进行注入-->
-    <!--
     <bean id="autowiredAnnotation" class="spring.AnnotationAutowired.TextEditor">
     </bean>
-    -->
-    <bean id="spellChecker" class="spring.AnnotationAutowired.SpellChecker"/>
+    <bean id="SpellChecker" class="spring.AnnotationAutowired.SpellChecker"/>
 
+    <!-- 在setter上使用了Autowired后，取消下面的注释，会让spring变糊涂，因为SpellChecker和testByType是两个一样的bean，
+        这时候spring它不知道该注入谁了-->
+<!--
+    <bean id="testByType" class="spring.AnnotationAutowired.SpellChecker"/>
+-->
 
 </beans>

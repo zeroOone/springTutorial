@@ -122,8 +122,7 @@
           autowire="byType">
         <property name="name" value="AutoWireByName"/>
     </bean>
-    <bean id="spellChecker411" class="spring.Autowired.SpellChecker3">
-    </bean>
+
 -->
     <!--自动装配constructor 会把构造函数注入的类的实例名来与配置文件中的bean对比-->
     <bean id="textEditor5" class="spring.Autowired.TextEditor3"

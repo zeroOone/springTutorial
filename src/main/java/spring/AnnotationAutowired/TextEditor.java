@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @Autowired 注释 ： 用在不同地方效果不同；
  *
- *                      setter 上 ： 使用byType方式链接
+ *                      setter 上 ： 使用byType方式链接（使用这种方式，要确保bean的唯一性）
  *
  *                      属性上：    可以消除setter方法，即不需要定义setter
  *
@@ -28,7 +28,9 @@ public class TextEditor {
     /**
      * 对属性使用Autowired注释，就可以省去setter方法了。现在可以把setter方法注释掉了
      */
+    /*
     @Autowired
+    */
     private SpellChecker spellChecker;
 
     /**
@@ -38,17 +40,21 @@ public class TextEditor {
     public TextEditor(SpellChecker spellChecker) {
         this.spellChecker = spellChecker;
     }
+    public TextEditor(){
+
+    }
 
     public SpellChecker getSpellChecker() {
         return spellChecker;
     }
-/*
+
     //使用在setter上
+
     @Autowired
     public void setSpellChecker(SpellChecker spellChecker) {
         this.spellChecker = spellChecker;
     }
-*/
+
     public void spellCheck() {
         spellChecker.checkSpelling();
     }
