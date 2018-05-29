@@ -9,9 +9,12 @@ package spring.Autowired;
  *
  * constructor ： 构造函数的参数类型相等即可（就是说，配置文件中，被注入的bean 的class要与这里的SpellChecker3相同）
  *
- * constructor与byName不同之处在于，不要byName需要set函数和默认构造函数
+ * constructor与byName不同之处在于，byName需要set函数和默认构造函数
+ *
  * constructor需要自定义一个参数的构造函数
+ *
  * 这三者都是通过寻找bean中的class属性，再通过不同策略来进行注入，跟bean的id属性没有关系
+ *
  */
 public class TextEditor3 {
     private SpellChecker3 spellChecker10;
@@ -22,7 +25,6 @@ public class TextEditor3 {
     public TextEditor3(){
 
     }
-    //自动装配byName的时候，被注入的bean的名必须与这里注入的类同名，比如这里的spellChecker3；
     public void setSpellChecker3( SpellChecker3 spellChecker3 ){
         this.spellChecker10 = spellChecker3;
     }

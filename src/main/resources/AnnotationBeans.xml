@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--启用注解-->
+    <context:annotation-config/>
+    <!--定义bean-->
+    <!--该bean对age启用了require注释，因此必须在这里注入age，否则报错-->
+    <bean id="requireAnnotation" class="spring.AnnotationRequired.Student">
+        <property name="name" value="jane"/>
+        <property name="age"  value="11"/>
+    </bean>
+
+    <!--当autowired注释用在setter上时，相当于使用byType的方式来进行注入-->
+    <!--
+    <bean id="autowiredAnnotation" class="spring.AnnotationAutowired.TextEditor">
+    </bean>
+    -->
+    <bean id="spellChecker" class="spring.AnnotationAutowired.SpellChecker"/>
+
+
+</beans>
