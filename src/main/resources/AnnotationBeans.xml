@@ -42,9 +42,14 @@
         <property name="name" value="student3"/>
     </bean>
 
+    <!--spring内置事件-->
     <bean id="helloEvent" class="spring.SpringEvent.HelloWorld">
         <property name="message" value="hello EVENT"/>
     </bean>
     <bean id="ContextStartedEvent" class="spring.SpringEvent.CStartEventHandler"/>
     <bean id="ContextStopppedEvent" class="spring.SpringEvent.CStopEventHandler"/>
+
+    <!--spring自定义事件-->
+    <bean id="myCustomEventHandler" class="spring.CustomizeEvent.MyCustomEventHandler"/>
+    <bean id="myCustomEventPublisher" class="spring.CustomizeEvent.MyCustomEventPublisher"/>
 </beans>
