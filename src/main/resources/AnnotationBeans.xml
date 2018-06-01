@@ -41,4 +41,10 @@
         <property name="age" value="12"/>
         <property name="name" value="student3"/>
     </bean>
+
+    <bean id="helloEvent" class="spring.SpringEvent.HelloWorld">
+        <property name="message" value="hello EVENT"/>
+    </bean>
+    <bean id="ContextStartedEvent" class="spring.SpringEvent.CStartEventHandler"/>
+    <bean id="ContextStopppedEvent" class="spring.SpringEvent.CStopEventHandler"/>
 </beans>
