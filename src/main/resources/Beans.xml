@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
 
     <!--相当于new一个对象，并初始化message为“Hello Spring”-->
     <bean id="HelloWorld" class="spring.firstSpring.HelloSpring">
@@ -131,4 +136,30 @@
     </bean>
     <bean id="spellChecker50" class="spring.Autowired.SpellChecker3">
     </bean>
+
+
+    <!-- 定义切面 -->
+    <aop:config>
+        <!--定义切面API（就是切入类）-->
+        <aop:aspect id="log" ref="logging">
+            <!--定义切入点(即哪些方法要被切入)-->
+            <aop:pointcut id="selectAll" expression="execution (* spring.*.*(..))"/>
+            <!--定义切入时机-->
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="selectAll" returning="retVal" method="afterReturningAdvice"/>
+            <aop:after-throwing pointcut-ref="selectAll" throwing="ex" method="AfterThrowingAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--定义Student的bean-->
+    <bean id="studentAop" class="spring.AOP.Student">
+        <property name="age" value="10"/>
+        <property name="name" value="testAOP"/>
+    </bean>
+
+    <!--定义切面类的bean-->
+    <bean  id="logging" class="spring.AOP.Logging"/>
+
+
 </beans>
